@@ -6,13 +6,14 @@
 /*   By: rdias-ba <rdias-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 11:42:02 by rdias-ba          #+#    #+#             */
-/*   Updated: 2024/03/29 13:53:18 by rdias-ba         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:16:02 by rdias-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
+#include "Brain.hpp"
 # include <string>
 # include <iostream>
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdias-ba <rdias-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,48 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal(): type("Animal")
+AAnimal::AAnimal(): type("AAnimal")
 {
 	std::cout << this->type << " Default constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type): type(type)
+AAnimal::AAnimal(std::string type): type(type)
 {
 	std::cout << this->type << " String constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &base)
+AAnimal::AAnimal(const AAnimal &base)
 {
-	std::cout << "Animal copy constructor called" << std::endl;
+	std::cout << "AAnimal copy constructor called" << std::endl;
     *this = base;
 }
 
-Animal& Animal::operator=(const Animal &base)
+AAnimal& AAnimal::operator=(const AAnimal &base)
 {
-	std::cout << "Animal assignment operator called" << std::endl;
+	std::cout << "AAnimal assignment operator called" << std::endl;
 	if (this != &base)
 		this->type = base.type;
 	return *this;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << "AAnimal destructor called" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string AAnimal::getType(void) const
 {
 	return this->type;
 }
 
-void Animal::setType(std::string type)
+void AAnimal::setType(std::string type)
 {
 	this->type = type;
 }
 
-void Animal::makeSound(void) const
+void AAnimal::makeSound(void) const
 {
-	std::cout << "Animal makeSound() called" << std::endl;
+	std::cout << "AAnimal makeSound() called" << std::endl;
 }

@@ -1,57 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdias-ba <rdias-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 13:06:08 by rdias-ba          #+#    #+#             */
-/*   Updated: 2024/03/29 13:31:17 by rdias-ba         ###   ########.fr       */
+/*   Created: 2024/03/29 13:43:29 by rdias-ba          #+#    #+#             */
+/*   Updated: 2024/03/29 16:57:24 by rdias-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
-Animal::Animal(): type("Animal")
+Cat::Cat(): AAnimal()
 {
+	this->setType("Cat");
+	this->brain = new Brain();
 	std::cout << this->type << " Default constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type): type(type)
+Cat::Cat(std::string type): AAnimal(type)
 {
+	this->brain = new Brain();
 	std::cout << this->type << " String constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &base)
+Cat::Cat(const Cat &base): AAnimal(base)
 {
-	std::cout << "Animal copy constructor called" << std::endl;
-    *this = base;
+	std::cout << "Cat copy constructor called" << std::endl;
+    this->type = base.type;
+	this->brain = new Brain(*base.brain);
 }
 
-Animal& Animal::operator=(const Animal &base)
+Cat& Cat::operator=(const Cat &base)
 {
-	std::cout << "Animal assignment operator called" << std::endl;
+	std::cout << "Cat assignment operator called" << std::endl;
 	if (this != &base)
+	{
 		this->type = base.type;
+		this->brain = new Brain(*base.brain);
+	}
 	return *this;
 }
 
-Animal::~Animal()
+Cat::~Cat()
 {
-    std::cout << "Animal destructor called" << std::endl;
+	delete this->brain;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
-std::string Animal::getType(void) const
+void Cat::makeSound(void) const
 {
-	return this->type;
-}
-
-void Animal::setType(std::string type)
-{
-	this->type = type;
-}
-
-void Animal::makeSound(void) const
-{
-	std::cout << "Animal makeSound() called" << std::endl;
+	std::cout << "Mew Mew !" << std::endl;
 }
